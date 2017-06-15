@@ -1,0 +1,26 @@
+{
+  "name": "up-loader",
+  "version": "1.0.0",
+  "description": "a file uploader for web",
+  "author": {
+    "name": "TS",
+    "email": "2488685651@qq.com",
+    "url": "https://github.com/baiyujie/ts-koumei.git"
+  },
+  "license": "MIT",
+  "main": "dist/up-loader.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "version": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "file",
+    "upload",
+    "web"
+  ],
+  "devDependencies": {
+    "rollup": "^0.25.8"
+  }
+}
