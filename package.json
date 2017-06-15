@@ -5,7 +5,7 @@
   "author": {
     "name": "TS",
     "email": "2488685651@qq.com",
-    "url": "https://github.com/baiyujie/ts-koumei.git"
+    "url": "https://github.com/baiyujie/koumei-fileup-loader.git"
   },
   "license": "MIT",
   "main": "dist/up-loader.js",

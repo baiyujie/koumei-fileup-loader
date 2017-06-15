@@ -18,7 +18,7 @@ after_success:
 
 env:
  global:
-   - GH_REF: github.com/xxapp/file-uploader.git
+   - GH_REF: github.com/baiyujie/koumei-fileup-loader.git
 
 cache:
   directories:
