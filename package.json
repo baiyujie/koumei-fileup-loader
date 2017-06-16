@@ -20,6 +20,10 @@
     "upload",
     "web"
   ],
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/baiyujie/koumei-fileup-loader.git"
+  },
   "devDependencies": {
     "rollup": "^0.25.8"
   }
