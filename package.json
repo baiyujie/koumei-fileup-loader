@@ -1,14 +1,14 @@
 {
   "name": "koumei-fileup-loader",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "a file uploader for web",
   "author": {
-    "name": "TS",
+    "name": "baiyujie",
     "email": "2488685651@qq.com",
     "url": "https://github.com/baiyujie/koumei-fileup-loader.git"
   },
   "license": "MIT",
-  "main": "dist/up-loader.js",
+  "main": "dist/koumei-fileup-loader.js",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",

@@ -21,6 +21,32 @@ var defaultOpts = {
 	onComplete: noop		        //文件全部上传完毕时
 };
 
+function handleChange(e) {
+    var instance = {
+        opts: merge(defaultOpts, opts)
+    };
+    
+    if (isSupportFormData()) {
+        // 如果支持FormData则使用Html5引擎
+        instance.ngin = new NginHtml5(instance.opts);
+    } else {
+        // 不支持则使用IFrame引擎
+        instance.ngin = new NginIFrame(instance.opts);
+    }
+    instance.ngin.getFiles(e);
+    var oldFileInput = instance.opts.fileInput;
+    var parent = oldFileInput.parentNode;
+    if (parent) {
+        var newFileInput = document.createElement('input');
+        newFileInput.setAttribute('type', 'file');
+        newFileInput.setAttribute('name', 'file');
+        newFileInput.setAttribute('id', oldFileInput.id);
+        addEvent(newFileInput, 'change', handleChange);
+        parent.replaceChild(newFileInput, oldFileInput);
+        instance.opts.fileInput = newFileInput;
+    }
+}
+
 function init(opts) {
     var instance = {
         opts: merge(defaultOpts, opts)
@@ -36,20 +62,6 @@ function init(opts) {
         
     //文件选择控件选择
     if (instance.opts.fileInput) {
-        function handleChange(e) {
-            instance.ngin.getFiles(e);
-            var oldFileInput = instance.opts.fileInput;
-            var parent = oldFileInput.parentNode;
-            if (parent) {
-                var newFileInput = document.createElement('input');
-                newFileInput.setAttribute('type', 'file');
-                newFileInput.setAttribute('name', 'file');
-                newFileInput.setAttribute('id', oldFileInput.id);
-                addEvent(newFileInput, 'change', handleChange);
-                parent.replaceChild(newFileInput, oldFileInput);
-                instance.opts.fileInput = newFileInput;
-            }
-        }
         addEvent(instance.opts.fileInput, 'change', handleChange);
     }
     
